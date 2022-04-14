@@ -16,7 +16,7 @@ export class NegociacoesView extends View {
             .lista()
             .map((negociacao) => {
             return `<tr>
-                    <td>${new Intl.DateTimeFormat().format(negociacao.data)}</td>
+                    <td>${this.fortmatDate(negociacao.data)}</td>
                     <td>${negociacao.quantidade}</td>
                     <td>${negociacao.valor}</td>
                 </tr>`;
@@ -26,5 +26,8 @@ export class NegociacoesView extends View {
             </tbody>
         </table>
     `;
+    }
+    fortmatDate(date) {
+        return new Intl.DateTimeFormat().format(date);
     }
 }
